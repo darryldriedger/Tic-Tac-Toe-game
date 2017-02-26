@@ -140,15 +140,5 @@ h1 {
       background-image: url(../img/x.svg); }
 
 /* -----------------test---------*/
-.star,
-.starText{
-  margin: 1em auto;
-  width: 20%;
-}
-.starText{
-  color: #FFF;
-  background: transparent url('../img/star.svg') center center no-repeat;
-  height: 200px;
 
-}
 /* -----------------test---------*/

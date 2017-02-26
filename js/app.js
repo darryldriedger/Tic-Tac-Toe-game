@@ -1,8 +1,5 @@
-//  (function () {
-// // // use strict
-//  'use strict'
-
-//document.addEventListener('DOMContenetLoaded', () => {});
+ (function () {
+ 'use strict'
 	// const compPlay = false;
 
 	let status = {active: "", mover: "", player: ""};
@@ -11,8 +8,6 @@
 	//Appends the start screen 
 	$('body').append(`<div class='screen screen-start' id='start'><header><h1>Tic Tac Toe</h1><input type='text' class='nameInput player1Name' id='player1Name' placeholder='Enter Player 1 Name'><br/><input type='text' class='nameInput player2Name' id='player2Name' placeholder='Enter Player 2 Name'><br/><a href='#' class='button' id='startButton'>Play Game</a><br><label><input type='checkbox' class='compChoice' /> Challenge the computer</label><br></header></div>`);
 	//Appends the finish screen
-	// ------ this will have to add a class of screen-win-one or screen-win-two or screen-win-tie
-	// ------ this will have to change the message according to the win, ... one, two or tie
 	$('body').append( `<div class='screen screen-win' id='finish'><header><h1>Tic Tac Toe</h1><p class='message'></p><a href='#' class='button' id='finishButton'>New game</a></header></div>`);
 	//Add CSS styling to the input fields referencing the text type
 	$('.nameInput').css({"width": "15em","padding": "12px 20px","margin": "8px 0","box-sizing": "border-box","border-radius": "5px"});
@@ -24,8 +19,8 @@
 		const nameTwo = $('#player2Name').val().toUpperCase();
 		$('#player1').append(`<label class="nameLabel">${nameOne}</label>`);
 		$('#player2').append(`<label class="nameLabel">${nameTwo}</label>`);	
-		playerNames.one = `${nameOne} Wins`;
-		playerNames.two = `${nameTwo} Wins`;
+		playerNames.one = `${nameOne} WINS!`;
+		playerNames.two = `${nameTwo} WINS!`;
 		return playerNames;
 	};
 	//Listen for click on the start game button
@@ -36,7 +31,7 @@
 		$('.box').removeClass('box-filled-1 box-filled-2');
 		$("#board").show("slow");
 		$("#start, #finish").hide("slow");
-		$('#finish').removeClass("screen-win-one screen-win-two");
+		$('#finish').removeClass("screen-win-one screen-win-two screen-win-tie");
 		boxfillArr = [];;
 	});
 	//Function that alternates between players
@@ -92,7 +87,7 @@
 			$("#board").hide("slow");
 			$("#finish").addClass(winScreen).show("slow");
 		}
-		if(array[0] && array[1] && array[2]){
+		if (array[0] && array[1] && array[2]){
 			win();
 		} else if (array[3] && array[4] && array[5]){
 			win();
@@ -113,7 +108,7 @@
 			$('.message').html(`${message}`);
 			$("#board").hide("slow");
 			$("#finish").addClass("screen-win-tie").show("slow");
-		}
+		} 
 	};
 
 	const winCheck = ()=>{
@@ -128,6 +123,7 @@
 			winArrChk(countArr2,"screen-win-two",2);
 		}
 	};
+
 //append the start and finish screen to the body
 			
 	//hide the board and the finish
@@ -150,4 +146,4 @@
 	//listen to the start game button 
 	//hide finish and show the board
 
-// });
+}());
